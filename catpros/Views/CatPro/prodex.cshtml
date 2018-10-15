@@ -1,0 +1,27 @@
+@model Product;
+
+<main>
+    <h2>Categories</h2><h2>Products</h2>
+    <form asp-action="CreateProduct" asp-controller="CatPro">
+        <span asp-validation-for="Name"></span>
+        <label asp-for="Name"></label>
+        <input asp-for="Name">
+        <span asp-validation-for="Description"></span>
+        <label asp-for="Description"></label>
+        <input asp-for="Description">
+        <span asp-validation-for="Price"></span>
+        <label asp-for="Price"></label>
+        <input asp-for="Price">
+        <input type="submit" value="CATEGRLKEJF">
+    </form>
+    <ul>
+        @foreach(var pro in @ViewBag.pros)
+        {
+            <li>
+                <a href="products/@pro.ProductId">
+                    @pro.Name
+                </a>
+            </li>
+        }
+    </ul>
+</main>

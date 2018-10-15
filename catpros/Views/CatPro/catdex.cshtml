@@ -1,0 +1,17 @@
+@model Category;
+
+<main>
+    <h2>Categories</h2><h2>Products</h2>
+    <form asp-action="CreateCategory" asp-controller="CatPro">
+        <span asp-validation-for="Name"></span>
+        <label asp-for="Name"></label>
+        <input asp-for="Name">
+        <input type="submit" value="CATEGRLKEJF">
+    </form>
+    <ul>
+        @foreach(var cat in @ViewBag.cats)
+        {
+            <li>@cat.Name</li>
+        }
+    </ul>
+</main>

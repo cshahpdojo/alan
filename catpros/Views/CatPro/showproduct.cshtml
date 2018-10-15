@@ -1,0 +1,24 @@
+@model Product;
+<main>
+    <h2>Yo did eet</h2>
+    <h2>@Model.Name</h2>
+    <div>
+        <ul>
+            @foreach(var c in @Model.Associations)
+            {
+                <li>@c</li>
+                <li>@c.Category.Name</li>
+            }
+        </ul>
+    </div>
+    <form action="/Associations" method="POST">
+        <input type="hidden" name="pro" value="@Model.ProductId">
+        <select name="cat">
+            @foreach(var cat in @ViewBag.cats)
+            {
+                <option value="@cat.CatergoryId">@cat.Name</option>
+            }
+        </select>
+        <input type="submit" value="Add Category!">
+    </form>
+</main>
